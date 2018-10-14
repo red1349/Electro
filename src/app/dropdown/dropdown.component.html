@@ -1,0 +1,35 @@
+<div class="dropdown-wrapper">
+  <a href="javascript:void(0)"
+     class="dropdown-title">
+    <span>{{data.title}}</span>
+  </a>
+  <div *ngIf="!options.hasSubmenu">
+    <ul [class.open]="options.collapsable && !options.collapsed"
+        [class.hidden]="!options.collapsable || options.collapsed"
+        class="dropdown"
+        [style.width.px]="customWidth()">
+      <li *ngFor="let item of data.dropdownItems">
+        <span>{{item.title}}</span>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="options.hasSubmenu">
+    <ul [class.open]="!options.collapsed"
+        [class.hidden]="options.collapsed"
+        class="dropdown"
+        [style.width.px]="customWidth()">
+      <li *ngFor="let item of data.dropdownItems">
+          <a href="javascript:void(0)"
+             class="dropdown-title">
+            <span>{{item.title}}</span>
+          </a>
+          <ul>
+            <li *ngFor="let item of item.dropdownItems">
+              <span>{{item.title}}</span>
+            </li>
+          </ul>
+      </li>
+    </ul>
+  </div>
+
+</div>

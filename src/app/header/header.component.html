@@ -1,0 +1,18 @@
+
+<header>
+
+  <ul>
+    <li *ngFor="let item of HeaderElementsBottom">
+      <app-dropdown [data]="item"
+                    [optionss]="createSubMenus(item)"></app-dropdown>
+    </li>
+  </ul>
+
+  <div class="main-menu">
+
+    <app-dropdown [data]="mainPageHeaderData"
+                  [optionss]="createMainMenu(mainPageHeaderData)"></app-dropdown>
+
+  </div>
+
+</header>
